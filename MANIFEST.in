@@ -1,0 +1,3 @@
+graft Jithub/templates
+graft Jithub/static
+include Jithub/schema.sql
