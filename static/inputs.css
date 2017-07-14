@@ -1,0 +1,159 @@
+/*-- Background Styling --*/
+
+body {
+    text-align: center;
+    padding-top: 10px;
+    background-color: aliceblue;
+}
+
+/*-- Back --*/
+
+.back {
+    background-color: #E82929;
+    padding: 30px;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 30px;
+    border-radius: 7px;
+    opacity: 0.85;
+}
+
+.back .subtitle{
+    opacity: 1;
+    font-family: monospace;
+    font-size: 20;
+    color: whitesmoke;
+    text-shadow: 2px 2px 2px #555555;
+}
+
+.back .header{
+    opacity: 1;
+    font-family: monospace;
+    text-shadow: 3px 3px 3px #444444;
+    font-size: 60;
+    color: whitesmoke;
+}
+
+/*-- Submit Button Styling --*/
+
+.submit_button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #80e5ff;
+    border: none;
+    color: #E82929;
+    text-align: center;
+    align-self: center;
+    font-family: monospace;
+    font-size: 20px;
+    padding: 5px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 10px 10px;
+    vertical-align: center;
+    align-items: center;
+}
+
+.submit_button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.submit_button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.submit_button:hover span {
+  padding-right: 25px;
+}
+
+.submit_button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/*-- Button Styling --*/
+
+.button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #80e5ff;
+    border: none;
+    color: #E82929;
+    text-align: center;
+    align-self: center;
+    font-family: monospace;
+    font-size: 28px;
+    padding: 10px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 10px 10px;
+    vertical-align: center;
+    align-items: center;
+}
+
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/*-- Inputbox Styling --*/
+
+.boundingbox{
+    background-color: #FC7D7D;
+    text-align: center;
+    align-content: center;
+    vertical-align: center;
+    margin-left: 30%;
+    margin-right: 30%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 7px;
+    opacity: 0.85;
+}
+
+/*-- Choose File Button Styling --*/
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+    margin-top: 10;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}

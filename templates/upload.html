@@ -1,0 +1,23 @@
+<html>
+    <link href="..\static\inputs.css" rel="stylesheet" />
+    <div class="back">
+    <p>
+        <div class="block" style="vertical-align:middle align:middle"><span>
+            <h1 class='header'>U P L O A D</h1>    
+            <p class="subtitle">Upload your review data </p>
+        </span></div>
+    </p>
+    </div>
+<form method=post enctype=multipart/form-data>
+<div class="upload-btn-wrapper">
+    <p>
+  <button class="button">Browse </button>
+        <input type="file" name="file"/></p>
+</div>
+    <button class="button" align='center' type="submit" value="Upload">Submit </button>
+
+</form>
+
+<button class="button" align="center" href="{{ url_for('index', filename='')}}"><span>Home</span></button>
+
+</html>

@@ -1,0 +1,31 @@
+<html>
+    <link href="..\static\inputs.css" rel="stylesheet" />
+    <div class="back">
+    <p>
+        <div class="block" style="vertical-align:middle align:middle"><span>
+            <h1 class='header'>L I N K</h1>    
+            <p class="subtitle">Link your databases </p>
+        </span></div>
+    </p>
+    </div>
+<form method=post enctype="multipart/form-data">
+    <div class="boundingbox">
+        Database Name:
+        <input type="text" name="database_name" class="inputbox" id="database_name">
+    </div>
+    <div class="boundingbox">
+        Table Name:
+        <input type="text" name="table_name" class="inputbox"><br>
+    </div>
+    <div class="boundingbox">
+        User Name:
+        <input type="text" name="user_name" class="inputbox">
+    </div>
+    <div class="boundingbox">
+        Password:
+        <input type="text" name="password" class="inputbox"><br>
+    </div>
+    <button class="submit_button" align="center" type="submit"><span>Submit </span></button>
+</form>
+    <button class="button" align="center" href="{{ url_for('index', filename='') }}"><span>Home</span></button>
+</html>
