@@ -4,11 +4,14 @@ from flask import Flask, render_template, request, url_for, redirect, flash
 from werkzeug.utils import secure_filename
 
 UPLOAD_FOLDER = '.\\resources\\upload'
+DATASET_FOLDER = '.\\resources\\txt_sentoken'
 ALLOWED_EXTENSIONS = set(['txt'])
 
 app = Flask(__name__)
 app.config.from_object(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['DATASET_FOLDER'] = DATASET_FOLDER
+
 
 app.config.update(dict(
     SECRET_KEY='development key',
@@ -50,7 +53,10 @@ def upload():
 #Results page
 @app.route('/upload_results')
 def upload_results():
-    #clf = classifier.init_model('.\\resources\\txt_sentoken')
-    filename = os.path.join('.\\resources\\upload', request.url.split('=')[-1])
-    #return classifier.predict_on(clf, filename)
-    return 'lol'
+    filename = os.path.join(app.config['UPLOAD_FOLDER'], request.url.split('=')[-1])
+
+    file_handle = open(filename)
+    data = file_handle.read()
+    file_handle.close()
+
+    return str(classifier.predict(app.config['DATASET_FOLDER'], data))
