@@ -3,7 +3,7 @@
 body {
     text-align: center;
     padding-top: 140px;
-    background-color: aliceblue;
+    background-image: url('.\bckg.png');
 }
 
 /*-- Back --*/
@@ -16,6 +16,8 @@ body {
     margin-bottom: 50px;
     border-radius: 7px;
     opacity: 0.85;
+    box-shadow: 5px 5px 5px #888888;
+    border-width: 1px;
 }
 
 .back .subtitle{
