@@ -1,5 +1,6 @@
 import MySQLdb as mysql
 import classifier.py
+
 def db_link(db_name, table_name, username, passwrd):
     '''
     Connects to the database whose name, access username, and password have been 
@@ -38,7 +39,7 @@ def pass_to_classifier(dataset, table_name):
         #Each input row has only one column comprising the text, so just feed that
         #into the classifier function.
         classifier_input = dataset[0][0]
-        output = #replace with classifier function
+        output = predict
         output_classes[tuple_index] = output
     #Loop through each of the output values and put them in the same row as the input
     for list_index in range(numEntries):
