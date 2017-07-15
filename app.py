@@ -1,6 +1,5 @@
 import os
 import classifier
-import MySQLdb as mysql
 from flask import Flask, render_template, request, url_for, redirect, flash
 from werkzeug.utils import secure_filename
 
@@ -13,13 +12,15 @@ app.config.from_object(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['DATASET_FOLDER'] = DATASET_FOLDER
 global DATABASE_KEYS
-
+global text_clf
 
 app.config.update(dict(
     SECRET_KEY='development key',
     USERNAME='admin',
     PASSWORD='default',
 ))
+
+text_clf = classifier.train_model(app.config['DATASET_FOLDER'])
 
 #Index page
 @app.route('/index')
@@ -61,8 +62,8 @@ def result_upload():
     data = file_handle.read()
     file_handle.close()
 
-    result = classifier.predict(app.config['DATASET_FOLDER'], data)
-    if result:
+    result = classifier.predict(text_clf, data)
+    if result[0]:
         result = 'positive'
     else:
         result = 'negative'
@@ -82,5 +83,5 @@ def get_data():
 #Link being loaded
 @app.route('/link_loading')
 def link_loading():
-    ##ENTER CODE HERE##
+    
     return render_template('link_loading.html')
