@@ -1,5 +1,5 @@
 <html>
-    <link href="..\static\inputs.css" rel="stylesheet" />
+    <link href="../static/inputs.css" rel="stylesheet" />
     <div class="back">
     <p>
         <div class="block" style="vertical-align:middle align:middle"><span>
@@ -9,15 +9,14 @@
     </p>
     </div>
 <form method=post enctype=multipart/form-data>
-<div class="upload-btn-wrapper">
     <p>
-  <button class="button">Browse </button>
-        <input type="file" name="file"/></p>
-</div>
-    <button class="button" align='center' type="submit" value="Upload">Submit </button>
+<div class="upload-btn-wrapper">
+    <button class="button"><span>Browse </span><input type="file" name="myfile" /></button>
+    </div></p>
+    <button class="button" align='center' type="submit" id="su_button"><span>Submit </span></button>
 
 </form>
 
-<a class="button" align="center" href="./index"><span>Home</span></a>
+<a class="button" align="center" href='./index'><span>Home </span></a>
 
 </html>
