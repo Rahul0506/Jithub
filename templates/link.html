@@ -8,7 +8,7 @@
         </span></div>
     </p>
     </div>
-<form method=post enctype="multipart/form-data">
+<form method="post" action="./link" enctype="multipart/form-data">
     <div class="boundingbox">
         Database Name:
         <input type="text" name="database_name" class="inputbox" id="database_name">
@@ -19,7 +19,7 @@
     </div>
     <div class="boundingbox">
         User Name:
-        <input type="text" name="user_name" class="inputbox">
+        <input type="text" name="user_name" class="inputbox"><span></span>
     </div>
     <div class="boundingbox">
         Password:
@@ -27,5 +27,5 @@
     </div>
     <button class="submit_button" align="center" type="submit"><span>Submit </span></button>
 </form>
-    <button class="button" align="center" href="{{ url_for('index', filename='') }}"><span>Home</span></button>
+    <a class="button" align="center" href="./index"><span>Home</span></a>
 </html>

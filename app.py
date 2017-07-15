@@ -11,12 +11,13 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['DATASET_FOLDER'] = DATASET_FOLDER
+global DATABASE_KEYS
 
 
 app.config.update(dict(
     SECRET_KEY='development key',
     USERNAME='admin',
-    PASSWORD='default'
+    PASSWORD='default',
 ))
 
 #Index page
@@ -47,16 +48,38 @@ def upload():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return redirect(url_for('upload_results', filename=filename))
+            return redirect(url_for('result_upload', filename=filename))
     return render_template('upload.html')
 
 #Results page
-@app.route('/upload_results')
-def upload_results():
+@app.route('/result_upload')
+def result_upload():
     filename = os.path.join(app.config['UPLOAD_FOLDER'], request.url.split('=')[-1])
 
     file_handle = open(filename)
     data = file_handle.read()
     file_handle.close()
 
-    return str(classifier.predict(app.config['DATASET_FOLDER'], data))
+    result = classifier.predict(app.config['DATASET_FOLDER'], data)
+    if result:
+        result = 'positive'
+    else:
+        result = 'negative'
+    return render_template('result_upload.html', result=result)
+
+#Form data page
+@app.route('/link', methods=['GET', 'POST'])
+def get_data():
+    if request.method == 'POST':
+        database_name = request.form['database_name']
+        table_name = request.form['table_name']
+        user_name = request.form['user_name']
+        password = request.form['password']
+        DATABASE_KEYS = (database_name, table_name, user_name, password)
+    return redirect(url_for('link_loading'))
+
+#Link being loaded
+@app.route('/link_loading')
+def link_loading():
+    ##ENTER CODE HERE##
+    return render_template('link_loading.html')
