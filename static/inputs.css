@@ -3,7 +3,7 @@
 body {
     text-align: center;
     padding-top: 10px;
-    background-image: url('.\bckg.png');
+    background-image: url(bckg.png)
 }
 
 /*-- Back --*/
@@ -139,7 +139,11 @@ body {
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 7px;
-    opacity: 0.85;
+    opacity: 1;
+}
+
+.inputbox {
+    opacity: 1;
 }
 
 /*-- Choose File Button Styling --*/
@@ -201,4 +205,9 @@ body {
 .upload-btn-wrapper ..button:hover span:after {
   opacity: 1;
   right: 0;
+}
+
+#su_button {
+    margin-top: 100px;
+    color: aqua;
 }
