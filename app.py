@@ -1,6 +1,7 @@
 import os
 import classifier
 import MySQLdb as mysql
+import backend_manager
 from flask import Flask, render_template, request, url_for, redirect, flash
 from werkzeug.utils import secure_filename
 
