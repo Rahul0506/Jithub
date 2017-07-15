@@ -87,4 +87,6 @@ def get_data():
 @app.route('/link_loading')
 def link_loading():
     db = mysql.connect(host="127.0.0.1", port=3306, user=db_keys[2], passwd=db_keys[3], db=db_keys[0])
+    input_dataset = db_link(db)
+    pass_to_classifier(input_dataset, db)
     return render_template('link_loading.html')
