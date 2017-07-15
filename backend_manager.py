@@ -43,6 +43,7 @@ def pass_to_classifier(dataset, table_name):
         output_classes[tuple_index] = output
     #Loop through each of the output values and put them in the same row as the input
     for list_index in range(numEntries):
+        output2 = output_classes[list_index]
         corr_input = dataset[list_index][0]
-        insert_command = "update %s set classification=%d where input_text=
-        
+        insert_command = "update %s set classification=%d where input_text=%s" %(table_name, output2, corr_input)
+        c.execute(insert_command)

@@ -41,6 +41,12 @@ def send_message(text, chat_id):
     get_url(url)
 #    return url
 
+def get_last_update_id(updates):
+    update_ids = []
+    for update in updates["result"]:
+        update_ids.append(int(update["update_id"]))
+    return max(update_ids)
+
 def main():
     last_textchat = (None, None)
     while True:
