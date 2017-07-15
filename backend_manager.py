@@ -1,22 +1,15 @@
 import MySQLdb as mysql
-import classifier.py
 
-def db_link(db_name, table_name, username, passwrd):
+def db_link(db):
     '''
-    Connects to the database whose name, access username, and password have been 
-    provided on the web app and have been fed into the function.
+    Connects to the database whose connection has been fed to the function.
 
     Returns a tuple of all rows of the specified table, each of which is a tuple.
-
-    Input assumptions: all input values are string values
     '''
-    #Create the database object and connect.
-    #Assumption that database is hosted on local server with standard mySQL port
-    db = mysql.connect(host="127.0.0.1", port=3306, user=username, passwd=passwrd, db=db_name)
     #Create a cursor object to help read the database
     c = db.cursor()
     #Write the command to fetch all rows from the database
-    extract_command = "select * from %s", table_name
+    extract_command = "select * from %s", db_names[1]
     #Execute the command using the cursor
     c.execute(extract_command)
     return c.fetchall()
