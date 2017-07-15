@@ -1,5 +1,5 @@
 import MySQLdb as mysql
-
+import classifier.py
 def db_link(db_name, table_name, username, passwrd):
     '''
     Connects to the database whose name, access username, and password have been 
@@ -21,7 +21,7 @@ def db_link(db_name, table_name, username, passwrd):
     return c.fetchall()
 
 
-def pass_to_classifier(dataset):
+def pass_to_classifier(dataset, table_name):
     '''
     Takes in the the dataset represented as a collection of rows.
 
@@ -43,5 +43,5 @@ def pass_to_classifier(dataset):
     #Loop through each of the output values and put them in the same row as the input
     for list_index in range(numEntries):
         corr_input = dataset[list_index][0]
-        insert_command = 
+        insert_command = "update %s set classification=%d where input_text=
         
